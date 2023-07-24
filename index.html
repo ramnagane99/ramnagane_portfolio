@@ -515,6 +515,34 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+<!-- Place this at the end of your website -->
+<div class="visitor-counter">
+  <h2></h2>
+  <p>Total visiters <span id="counter">0</span> </p>
+</div>
+
+<script>
+  // Get the counter element from the HTML
+  const counterElement = document.getElementById("counter");
+
+  // Check if the "counter" key exists in localStorage
+  if (localStorage.getItem("counter") === null) {
+      // If the "counter" key doesn't exist, initialize it to 0
+      localStorage.setItem("counter", 0);
+  }
+
+  // Get the current counter value from localStorage
+  let counterValue = parseInt(localStorage.getItem("counter"));
+
+  // Increment the counter value
+  counterValue++;
+
+  // Update the counter element in the HTML
+  counterElement.textContent = counterValue;
+
+  // Store the updated counter value back to localStorage
+  localStorage.setItem("counter", counterValue.toString());
+</script>
 
 </body>
 </html>
